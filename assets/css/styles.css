@@ -88,6 +88,13 @@ body {
   overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center top;
+  }
+}
+
 body.lock-scroll {
   overflow: hidden;
   height: 100vh;
@@ -741,7 +748,7 @@ body.content-ready .navbar {
 
 @media (max-width: 768px) {
   .hero-names {
-    font-size: clamp(85px, 12vw, 95px);
+    font-size: clamp(75px, 12vw, 75px);
     letter-spacing: 0.5px;
   }
 
