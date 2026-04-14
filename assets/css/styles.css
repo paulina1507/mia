@@ -1986,7 +1986,6 @@ body.footer-ready footer.site-footer {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--text-soft);
   margin: 1.6rem auto 2.4rem;
   max-width: 460px;
 }
@@ -2281,6 +2280,7 @@ body.footer-ready footer.site-footer {
   font-weight: 500;
   letter-spacing: 0.08em;
   margin: 12px 0 16px;
+  color: var(--white);
 }
 
 .rsvp-guest-name::before {
@@ -2564,11 +2564,6 @@ body.footer-ready footer.site-footer {
   .flap.top {
     border-width: calc(92vw * 118 / 420) calc(92vw * 210 / 420);
   }
-
-  .seal img {
-    width: 150px;
-    height: 150px;
-  }
 }
 
 /* ========================================================= */
@@ -2592,8 +2587,8 @@ body.footer-ready footer.site-footer {
 
 /* IMAGEN DEL SELLO */
 .seal img {
-  width: 115px;
-  height: 115px;
+  width: 140px;
+  height: 140px;
   object-fit: contain;
 
   animation: sealIdle 2.6s ease-in-out infinite;
@@ -2643,16 +2638,16 @@ body.footer-ready footer.site-footer {
     inset: 0;
     margin: auto;
 
-    width: 80px; /* contenedor más chico */
-    height: 80px;
+    width: 100px; /* contenedor más chico */
+    height: 100px;
 
     transform: none;
   }
 
   /* 👇 SELLO MÁS CHICO REALMENTE */
   .seal img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     animation: sealIdleMobile 2.8s ease-in-out infinite;
     filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.16));
   }
