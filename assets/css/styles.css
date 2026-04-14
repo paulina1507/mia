@@ -2,8 +2,8 @@
 /*  COLORES ROOT + TIPOGRAFÍA BASE                      */
 /* ========================================================= */
 @font-face {
-  font-family: 'Gistesy';
-  src: url('../fonts/Gistesy.ttf') format('truetype');
+  font-family: "Gistesy";
+  src: url("../fonts/Gistesy.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -95,6 +95,10 @@ body::before {
   body {
     background-size: cover;
     background-position: center top;
+  }
+
+  #rsvp-form-title {
+    margin-top: 20px;
   }
 }
 
@@ -415,9 +419,9 @@ body.content-ready .navbar {
 .hero-names {
   font-family: "Gistesy", cursive;
   font-size: clamp(34px, 7vw, 78px);
-  display: block;          
-  text-align: center;      
-  margin: 0 auto;         
+  display: block;
+  text-align: center;
+  margin: 0 auto;
   background: linear-gradient(
     120deg,
     #7a5a1f 15%,
@@ -457,7 +461,7 @@ body.content-ready .navbar {
   border: 2px solid rgba(212, 175, 55, 0.2);
   box-shadow: var(--shadow-main);
   position: relative;
-  overflow: visible; 
+  overflow: visible;
   text-align: center;
   z-index: 10;
   transition: transform 0.35s ease;
@@ -527,7 +531,7 @@ body.content-ready .navbar {
 
 @media (max-width: 480px) {
   .card {
-    width: 92%;      /* 👈 más grande */
+    width: 92%; /* 👈 más grande */
     max-width: 420px; /* 👈 no se descontrole en pantallas grandes */
   }
 
@@ -1971,7 +1975,6 @@ body.footer-ready footer.site-footer {
 /* ========================================================= */
 /* FORMULARIO RSVP                                           */
 /* ========================================================= */
-
 .rsvp-container {
   max-width: 520px;
   margin: 0 auto;
@@ -2022,20 +2025,24 @@ body.footer-ready footer.site-footer {
 /* ========================================================= */
 /* FINAL RSVP (DENTRO DEL ARCO)                              */
 /* ========================================================= */
-
 #rsvp-final {
   display: none;
-
   margin-top: 1.5rem;
   text-align: center;
+
+  /* 🔥 MÁS ESPACIO */
+  padding: 50px 25px;
 
   opacity: 0;
   transform: translateY(20px);
   transition:
     opacity 0.45s ease,
     transform 0.45s ease;
+
+  position: relative;
 }
 
+/* ACTIVADO */
 #rsvp.completed #rsvp-final {
   display: flex;
   flex-direction: column;
@@ -2045,29 +2052,43 @@ body.footer-ready footer.site-footer {
   transform: translateY(0);
 }
 
-#rsvp-final h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 1.7rem;
-  margin-bottom: 1rem;
+/* contenido arriba */
+#rsvp-final > * {
+  position: relative;
+  z-index: 1;
 }
 
+/* TITULO */
+#rsvp-final h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.9rem;
+  margin-bottom: 15px;
+  color: var(--white);
+}
+
+/* TEXTO PRINCIPAL 🔥 */
 #rsvp-final p {
   font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #555;
-  max-width: 460px;
+  font-size: 1.15rem; /* 👈 más grande */
+  line-height: 1.7;
+
+  max-width: 300px; /* 👈 MÁS ANGOSTO = elegante */
+  margin: 0 auto 25px;
+
+  opacity: 0.95;
 }
 
 .rsvp-sign {
   margin-top: 36px;
-  font-family: "Gistesy", cursive;
+  font-family: "Great Vibes", cursive;
   font-size: 32px;
-  color: #5e7c6f;
   opacity: 0.9;
-}
-.rsvp-sign {
-  transform: rotate(-1deg);
+  background: linear-gradient(120deg, #d4af37, #fff2b8, #d4af37);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 .rsvp-label {
@@ -2241,11 +2262,10 @@ body.footer-ready footer.site-footer {
 
 .rsvp-pass-item .label {
   display: block;
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: 18px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #7c8f84;
-  margin-bottom: 4px;
+  color: var(--bg-soft);
 }
 
 .rsvp-pass-item strong {

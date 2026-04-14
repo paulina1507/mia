@@ -8,7 +8,7 @@
     if (!codigo) {
       console.error("No se recibió código de invitado");
       return null;
-    }
+}
 
     try {
       const res = await fetch(
@@ -136,7 +136,7 @@
 
       // 🔥 texto limpio
       if (finalText) {
-        finalText.textContent = data.texto_no || "Gracias por avisarnos <br>Aunque no puedas acompañarnos, te llevamos en el corazón en este día tan importante.";
+        finalText.innerHTML = data.texto_no || "Gracias por avisarnos <br>Aunque no puedas acompañarnos te llevamos en el corazón en este día tan importante.";
       }
     }
 
