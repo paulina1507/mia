@@ -17,8 +17,9 @@
     "favicon": "favicon.ico"
   },
   "logo": {
-    "type": "text",
-    "value": "Mis XV Años"
+    "type": "text-image",
+    "value": "Mis XV",
+    "img": "logo.png"
   },
   "media": {
     "hero_background": "quinceañera.jpeg",
@@ -108,7 +109,7 @@
   "hero": {
     "enabled": true,
     "names": {
-      "festejada": "XV Años Mia"
+      "festejada": "Mis XV Mia"
     },
     "countdown_labels": {
       "dias": "Días",
@@ -119,16 +120,23 @@
   },
   "presentacion": {
     "enabled": true,
-    "titulo": "Tengo el honor de invitarte a celebrar mis XV años",
+    "titulo": "Tengo el honor de invitarte a celebrar mis XV",
     "nombres": "MIA",
     "frase": "Con la bendición de Dios y en compañía de mis seres queridos:",
     "padres": {
       "festejada": ["Ángel Dávila León", "Carolina Portillo Domínguez"]
     },
     "padrinos": [
-      "Karina Cortés Arreola",
-      "Christian Ríos Domínguez",
-      "Sienna Ríos Arreola"
+      {
+        "nombre": "Karina Cortés Arreola"
+      },
+      {
+        "nombre": "Christian Ríos Domínguez"
+      },
+      {
+        "rol": "Mini Madrina",
+        "nombre": "Sienna Ríos Arreola"
+      }
     ],
     "texto_final": "Este día marca una nueva etapa en mi vida y me encantaría compartirlo contigo.",
     "labels": {
@@ -138,7 +146,7 @@
   },
   "ubicacion": {
     "enabled": true,
-    "titulo": "Fecha y Ubicación",
+    "titulo": "Fecha y Ubicacion",
     "lugares": [
       {
         "enabled": false,
@@ -193,17 +201,17 @@
   },
   "vestimenta": {
     "enabled": true,
-    "titulo": "Código de Vestimenta",
+    "titulo": "Codigo de Vestimenta",
     "formal": "FORMAL",
     "nota": "El color rojo está reservado para la festejada",
     "labels": {
       "mujeres": "Mujeres",
       "hombres": "Hombres"
     },
-    "mujeres": "Formal / colores vivos",
-    "hombres": "Formal / traje oscuro con un toque de color",
+    "mujeres": "Formal / Colores vivos",
+    "hombres": "Formal / Traje oscuro con un toque de color",
     "inspo": {
-      "text": "Ver inspiración",
+      "text": "VER INSPIRACIÓN",
       "url": "https://mx.pinterest.com/miadavporth/dress-code-xvs-mia/?invite_code=dc347fa7b62a4c4891564225db55d943&sender=870672677868674695"
     }
   },
@@ -244,7 +252,7 @@
     },
     "botones": {
       "si": "Sí, asistiré",
-      "no": "No podré asistir"
+      "no": "Lo siento, no podremos asistir"
     },
     "final": {
       "titulo": "¡Gracias por confirmar!",

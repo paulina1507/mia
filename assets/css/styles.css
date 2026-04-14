@@ -1,6 +1,24 @@
 /* ========================================================= */
 /*  COLORES ROOT + TIPOGRAFÍA BASE                      */
 /* ========================================================= */
+@font-face {
+  font-family: 'Gistesy';
+  src: url('../fonts/Gistesy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-img {
+  width: 60px;
+  height: auto;
+}
+
 :root {
   /* =========================================================
      1. BASE (NO TOCAR)
@@ -60,8 +78,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  background:
-    url('../img/fondo.webp') no-repeat center center fixed;
+  background: url("../img/fondo.webp") no-repeat center center fixed;
 
   background-size: cover;
   color: var(--text-primary);
@@ -361,7 +378,9 @@ body.content-ready .navbar {
 }
 
 .hero-info {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-info::after {
@@ -384,9 +403,11 @@ body.content-ready .navbar {
 }
 
 .hero-names {
-  font-family: "Great Vibes", cursive;
+  font-family: "Gistesy", cursive;
   font-size: clamp(34px, 7vw, 78px);
-
+  display: block;          
+  text-align: center;      
+  margin: 0 auto;         
   background: linear-gradient(
     120deg,
     #7a5a1f 15%,
@@ -407,7 +428,6 @@ body.content-ready .navbar {
   /* 💥 GLOW REAL */
   text-shadow: 0 0 30px rgba(255, 215, 0, 0.35); /* halo dorado */
 
-
   animation: shine 7s linear infinite;
 }
 
@@ -420,7 +440,43 @@ body.content-ready .navbar {
   }
 }
 
+.card {
+  width: min(85%, 400px);
+  margin: 0 auto;
+  padding: 18px;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  box-shadow: var(--shadow-main);
+  position: relative;
+  overflow: visible; 
+  text-align: center;
+  z-index: 10;
+  transition: transform 0.35s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 27, 42, 0.35) 0%,
+    rgba(13, 27, 42, 0.55) 100%
+  );
+
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 2;
+}
+
 .hero-count {
+  width: 100%;
+  max-width: 480px;
+  margin-inline: auto;
   opacity: 0;
   transition: opacity 0.8s ease;
   animation-delay: 0.25s;
@@ -428,7 +484,6 @@ body.content-ready .navbar {
   justify-content: center;
   align-items: center;
   gap: 14px;
-  margin-top: 28px;
   padding: 0 24px;
   animation: heroFadeIn 1.6s ease forwards 0.9s;
 }
@@ -449,7 +504,6 @@ body.content-ready .navbar {
   text-transform: uppercase;
 
   opacity: 0.85;
-  color: #a68c4a; /* doradito suave */
 
   font-weight: 500;
 }
@@ -462,17 +516,15 @@ body.content-ready .navbar {
 }
 
 @media (max-width: 480px) {
-  .arco-base.arco-hero {
-    width: 86%;
-    max-width: 320px;
-    height: 520px;
-    border-radius: 200px 200px 0 0;
+  .card {
+    width: 92%;      /* 👈 más grande */
+    max-width: 420px; /* 👈 no se descontrole en pantallas grandes */
   }
 
   .hero-count {
-    margin-top: 30px;
-    margin-bottom: 12px;
-    padding: 12px;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding: 0 10px;
   }
 }
 
@@ -528,10 +580,6 @@ body.content-ready .navbar {
   overflow: visible; /* FIX */
   width: 100%;
 }
-
-#presentacion.section-arco {
-  padding-top: 0;
-}
 /* ========================================================= */
 /* ARCO BASE REFINADO */
 /* ========================================================= */
@@ -543,7 +591,7 @@ body.content-ready .navbar {
   border-radius: 260px 260px 0 0;
   padding: 90px 40px 80px;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
   text-align: center;
   z-index: 10;
 }
@@ -562,8 +610,21 @@ body.content-ready .navbar {
   z-index: 0;
 }
 
+.padrino-item {
+  margin-bottom: 12px;
+}
+
+.padrino-rol {
+  font-size: 1rem; /* puedes ajustarlo si quieres igual exacto */
+  margin: 0;
+}
+
+.padrino-nombre {
+  display: block;
+}
+
 .arco-title {
-  font-family: "Great Vibes";
+  font-family: "Gistesy";
   font-size: 40px;
   color: var(--text-primary);
   margin-bottom: 25px;
@@ -679,12 +740,8 @@ body.content-ready .navbar {
 }
 
 @media (max-width: 768px) {
-  .hero-arco {
-    padding-top: 60px; /* solo respiro del navbar */
-  }
-
   .hero-names {
-    font-size: clamp(65px, 12vw, 98px);
+    font-size: clamp(85px, 12vw, 95px);
     letter-spacing: 0.5px;
   }
 
@@ -973,7 +1030,7 @@ body.content-ready .navbar {
   }
 
   .arco-title {
-    font-size: 32px;
+    font-size: 38px;
   }
 
   .arco-nombres {
@@ -1042,8 +1099,8 @@ body.content-ready .navbar {
 
 .fecha-dia {
   display: block;
-  font-family: "Great Vibes", cursive;
-  font-size: 28px;
+  font-family: "Gistesy", cursive;
+  font-size: 38px;
   color: var(--bg-main);
   text-transform: capitalize;
   line-height: 1.1;
@@ -1053,10 +1110,10 @@ body.content-ready .navbar {
   display: block;
   margin-top: 4px;
   font-family: "Montserrat", sans-serif;
-  font-size: 18px; /* 👈 bajamos un poquito */
+  font-size: 20px; /* 👈 bajamos un poquito */
   letter-spacing: 2px; /* 👈 más elegante */
   text-transform: uppercase;
-  color: var(--base-black); /* 👈 más profundo */
+  color: var(--bg-soft); /* 👈 más profundo */
   font-weight: 500; /* 👈 clave premium */
 }
 
@@ -1066,7 +1123,7 @@ body.content-ready .navbar {
   }
 
   .fecha-completa {
-    font-size: 16px; /* 👈 bajamos leve */
+    font-size: 18px; /* 👈 bajamos leve */
     letter-spacing: 1px; /* 👈 subimos un poco para elegancia */
     font-weight: 500;
   }
@@ -1096,7 +1153,7 @@ body.content-ready .navbar {
   font-family: "Playfair Display";
   font-size: 22px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--bg-soft);
   margin-bottom: 14px;
 }
 
@@ -1159,7 +1216,7 @@ body.content-ready .navbar {
 
   /* Lugar */
   .ubicacion-lugar {
-    font-size: 19px;
+    font-size: 20px;
     margin-bottom: 12px;
   }
 
@@ -1430,6 +1487,7 @@ body.content-ready .navbar {
 
 #vestimenta {
   text-align: center;
+  color: var(--black);
 }
 
 /* ANIMACIONES */
@@ -1483,7 +1541,7 @@ body.content-ready .navbar {
 
 /* CONTENEDOR DE BLOQUES */
 .vestimenta-group {
-  margin: 16px 0;
+  margin: 22px 0;
 }
 
 /* LABELS */
@@ -1491,21 +1549,25 @@ body.content-ready .navbar {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 4px;
-  color: var(--color-text);
+  color: var(--black);
 }
 
 /* CONTENIDO */
 .v-content {
   font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.6;
+}
+
+#vestimenta-mujeres,
+#vestimenta-hombres {
+  color: var(--black);
+  line-height: 1.4;
 }
 
 /* NOTA */
 .nota {
   margin-top: 16px;
   font-size: 14px;
-  color: var(--text-soft);
+  color: var(--black);
 }
 
 /* BOTÓN */
@@ -1990,7 +2052,7 @@ body.footer-ready footer.site-footer {
 
 .rsvp-sign {
   margin-top: 36px;
-  font-family: "Great Vibes", cursive;
+  font-family: "Gistesy", cursive;
   font-size: 32px;
   color: #5e7c6f;
   opacity: 0.9;

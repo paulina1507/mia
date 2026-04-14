@@ -58,9 +58,30 @@ fetch("assets/js/evento.json")
 
     /* ================= LOGO ================= */
 
+    /* ================= LOGO ================= */
+
     const logoEl = document.querySelector(".logo");
-    if (logoEl && data.logo?.type === "text") {
-      logoEl.textContent = data.logo.value;
+
+    if (logoEl && data.logo) {
+      // TEXTO + IMAGEN
+      if (data.logo.type === "text-image") {
+        logoEl.innerHTML = `
+      <span class="logo-text">${data.logo.value}</span>
+      <img src="assets/img/${data.logo.img}" class="logo-img" />
+    `;
+      }
+
+      // SOLO TEXTO
+      else if (data.logo.type === "text") {
+        logoEl.textContent = data.logo.value;
+      }
+
+      // SOLO IMAGEN
+      else if (data.logo.type === "image") {
+        logoEl.innerHTML = `
+      <img src="assets/img/${data.logo.img}" class="logo-img" />
+    `;
+      }
     }
 
     /* ================= AUDIO ================= */
@@ -81,7 +102,7 @@ fetch("assets/js/evento.json")
       if (musicToggle && musicIcon) {
         musicToggle.addEventListener("click", () => {
           if (audio.paused) {
-            audio.play().catch(() => { });
+            audio.play().catch(() => {});
             musicIcon.src = `assets/img/${data.audio.icons.pause}`;
           } else {
             audio.pause();
@@ -179,7 +200,24 @@ fetch("assets/js/evento.json")
         padresNovioEl?.closest(".arco-grupo")?.remove();
 
         if (p.padrinos?.length) {
-          setHTML("padrinos", p.padrinos.join("<br>"));
+          const html = p.padrinos
+            .map((pad) => {
+              if (typeof pad === "string") return `<div>${pad}</div>`;
+
+              if (pad.rol) {
+                return `
+          <div class="padrino-item">
+            <h4 class="padrino-rol">${pad.rol}</h4>
+            <span class="padrino-nombre">${pad.nombre}</span>
+          </div>
+        `;
+              }
+
+              return `<div class="padrino-item">${pad.nombre}</div>`;
+            })
+            .join("");
+
+          setHTML("padrinos", html);
           setText("label-padrinos", p.labels?.padrinos || "Mis Padrinos");
         }
       } else {
@@ -248,16 +286,18 @@ fetch("assets/js/evento.json")
               <h3 class="ubicacion-subtitle">${lugar.tipo}</h3>
               <div class="ubicacion-hora">${lugar.hora}</div>
               <div class="ubicacion-lugar">${lugar.lugar}</div>
-              ${lugar.direccion?.length
-              ? `<div class="ubicacion-direccion">${lugar.direccion.join(
-                "<br>",
-              )}</div>`
-              : ""
-            }
-              ${lugar.mapa
-              ? `<a href="${lugar.mapa}" target="_blank" class="btn-ubicacion">Ver ubicación</a>`
-              : ""
-            }
+              ${
+                lugar.direccion?.length
+                  ? `<div class="ubicacion-direccion">${lugar.direccion.join(
+                      "<br>",
+                    )}</div>`
+                  : ""
+              }
+              ${
+                lugar.mapa
+                  ? `<a href="${lugar.mapa}" target="_blank" class="btn-ubicacion">VER UBICACIÓN</a>`
+                  : ""
+              }
             </div>
           `,
           );
@@ -326,7 +366,6 @@ fetch("assets/js/evento.json")
       } else if (inspoBtn) {
         inspoBtn.style.display = "none";
       }
-
     } else {
       removeSection("vestimenta");
     }
