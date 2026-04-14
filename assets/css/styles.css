@@ -355,6 +355,14 @@ body.content-ready .navbar {
 /* ========================================================= */
 /* HERO */
 /* ========================================================= */
+.hero-faltan{
+  color: var(--white);
+  margin-bottom: 10px;
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.9),
+    0 0 40px rgba(255, 215, 0, 0.6),
+    0 0 80px rgba(255, 215, 0, 0.4);
+}
 .hero-section {
   display: flex;
   justify-content: center;
@@ -438,12 +446,13 @@ body.content-ready .navbar {
 
   letter-spacing: 1px;
   font-weight: 400;
+  text-shadow:
+    0 0 15px rgba(255, 215, 0, 0.8),    /* dorado fuerte */
+    0 0 35px rgba(255, 215, 0, 0.5),    /* glow medio */
+    0 0 70px rgba(255, 215, 0, 0.25);   /* halo exterior */
 
-  /* 💥 GLOW REAL */
-  text-shadow: 0 0 30px rgba(255, 215, 0, 0.35); /* halo dorado */
-
-  animation: shine 7s linear infinite;
-}
+    animation: shine 7s linear infinite;
+  }
 
 @keyframes shine {
   0% {
