@@ -114,6 +114,9 @@ h4 {
   font-family: "Playfair Display", serif;
 }
 
+h4 {
+  color: var(--white);
+}
 html,
 body {
   overflow-x: hidden !important;
