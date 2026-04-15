@@ -117,6 +117,11 @@ h4 {
 h4 {
   color: var(--white);
 }
+
+#vestimenta h4 {
+  color: var(--black);
+}
+
 html,
 body {
   overflow-x: hidden !important;
@@ -1536,6 +1541,17 @@ body.content-ready .navbar {
   transform: translateY(0);
 }
 
+/* NOTA */
+.nota {
+  margin-top: 20px;
+  font-size: clamp(15px, 3vw, 20px); /* 👈 más grande y responsive */
+  color: var(--black);
+  font-weight: 800; /* 👈 negrita fuerte */
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 0.8px;
+}
+
 /* ICONO */
 .vestimenta-icon {
   width: 300px;
@@ -1587,13 +1603,6 @@ body.content-ready .navbar {
 #vestimenta-hombres {
   color: var(--black);
   line-height: 1.4;
-}
-
-/* NOTA */
-.nota {
-  margin-top: 16px;
-  font-size: 14px;
-  color: var(--black);
 }
 
 /* BOTÓN */

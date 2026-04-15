@@ -235,13 +235,13 @@
     "mode": "panel",
     "telefono": "522441183165",
     "mensaje_base": "Hola, confirmo mi asistencia a los XV años de Mia.",
-    "fecha_limite": "2026-05-15",
+    "fecha_limite": "2026-04-25",
     "qr": {
       "enabled": false
     },
     "titulo": "Confirmar asistencia",
     "texto": "Por favor confirma tu asistencia",
-    "nota": "Te agradeceremos confirmar tu asistencia antes del {{fecha_limite}}.",
+    "nota": "Te agradeceremos confirmar tu asistencia lo antes posible, o a más tardar antes del {{fecha_limite}}.",
     "pase": {
       "enabled": true,
       "label": "Pase para"
